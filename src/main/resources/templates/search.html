@@ -41,7 +41,7 @@
     <div th:if="${jobs} and ${jobs.size()}">
         <table>
             <tr>
-                <th th:each="column : ${jobs.get(0).keySet()}" th:text="${column}"/>
+                <th th:each="column : ${columns.keySet()}" th:text="${columns.get(column)}"/>
             </tr>
 
 

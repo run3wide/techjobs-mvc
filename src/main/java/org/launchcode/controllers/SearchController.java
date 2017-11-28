@@ -28,8 +28,12 @@ public class SearchController {
 
     @RequestMapping(value = "/results", method = RequestMethod.POST)
     public String searchByType(@RequestParam String searchType, @RequestParam String searchTerm) {
-        ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
-        this.jobs = jobs;
+        if (searchType.equals("all")) {
+            this.jobs = JobData.findByValue(searchTerm);
+        } else {
+            this.jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+        }
+
         return "redirect:";
     }
 }

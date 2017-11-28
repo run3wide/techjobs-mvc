@@ -38,19 +38,7 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
-    <div th:if="${jobs} and ${jobs.size()}">
-        <table>
-            <tr>
-                <th th:each="column : ${columns.keySet()}" th:text="${columns.get(column)}"/>
-            </tr>
-
-
-            <tr th:each="job : ${jobs}">
-                <td th:each="column : ${job.keySet()}" th:text="${job.get(column)}">Individual data cell
-                </td>
-            </tr>
-
-        </table>
+    <div th:replace="fragments :: display-jobs">
     </div>
 
 </div>
